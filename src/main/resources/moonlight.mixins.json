@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "ca.spottedleaf.starlight.mixin",
+    "compatibilityLevel": "JAVA_8",
+    "mixins": [
+        "common.chunk.MixinChunk"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    },
+    "refmap": "mooonlight.refmap.json"
+}

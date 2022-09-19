@@ -59,13 +59,23 @@ configurations {
 dependencies {
     minecraft "net.minecraftforge:forge:${project.mc_version}-${project.forge_version}"
 
-    embed("org.spongepowered:mixin:0.8.3") {
-        transitive = false
+    embed("org.spongepowered:mixin:0.8.5") {
+        exclude module: "guava"
+        exclude module: "commons-io"
+        exclude module: "gson"
     }
-    annotationProcessor "org.spongepowered:mixin:0.8.3:processor"
+    annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
 }
 
 jar {
+    configurations.embed.each { dependency ->
+        from(project.zipTree(dependency)) {
+            dependency.isDirectory() ? dependency : zipTree(dependency)
+            rename("LICENSE.txt", "org/spongepowered/LICENSE.txt")
+            exclude(["META-INF/*.SF", "META-INF/*.RSA", "META-INF/*.MF", "**/*.html", "module-info.class"])
+        }
+    }
+
     manifest {
         attributes([
                 "FMLCorePlugin"              : "${project.mod_group}.${project.loading_plugin}",

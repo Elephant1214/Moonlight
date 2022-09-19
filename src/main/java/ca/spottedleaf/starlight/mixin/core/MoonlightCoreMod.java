@@ -8,6 +8,8 @@ import org.spongepowered.asm.mixin.Mixins;
 import javax.annotation.Nullable;
 import java.util.Map;
 
+@IFMLLoadingPlugin.MCVersion("1.12.2")
+@IFMLLoadingPlugin.Name("Moonlight")
 public class MoonlightCoreMod implements IFMLLoadingPlugin {
     @Override
     public String[] getASMTransformerClass() {

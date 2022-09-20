@@ -1,4 +1,4 @@
-package ca.spottedleaf.starlight.mixin.core;
+package ca.spottedleaf.starlight.core;
 
 import ca.spottedleaf.starlight.Starlight;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin;
